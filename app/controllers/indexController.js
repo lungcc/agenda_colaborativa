@@ -1,7 +1,9 @@
 /**
  * Front Page Controller.
  */
-module.exports = function(req, res) {
-  console.log(req);
-  res.json({message: 'Sua API esta funcionando.'});
+module.exports.controller = function(app) {
+   // Front page.
+  app.get('/', function(req, res) {
+    res.json({message: 'Sua API esta funcionando.'});
+  });
 }
