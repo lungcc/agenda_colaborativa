@@ -1,9 +1,9 @@
 /**
  * Front Page Controller.
  */
-module.exports.controller = function(app) {
+module.exports.controller = function(router) {
    // Front page.
-  app.get('/', function(req, res) {
+  router.get('/', function(req, res) {
     res.json({message: 'Sua API esta funcionando.'});
   });
 }

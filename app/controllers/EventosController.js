@@ -3,16 +3,19 @@ var Evento = require('../models/evento.js');
 /**
  * Eventos Controller.
  */
-module.exports.controller = function(app) {
+module.exports.controller = function(router) {
   // Selecao de eventos.
-  app.get('/api/eventos', function(req, res) {
+  router.get('/api/eventos', function(req, res) {
     Evento.find({}, function(err, eventos) {
+      if (err) {
+        throw (err);
+      }
       res.json(eventos);
     });
   });
 
   // Adição de eventos.
-  app.post('/api/eventos', function(req, res) {
+  router.post('/api/eventos', function(req, res) {
     var evento = new Evento();
     evento.titulo = req.body.titulo;
     evento.body = req.body.body;
