@@ -1,7 +1,7 @@
 {
-  "name": "my-project",
+  "name": "agenda_colaborativa",
   "version": "1.0.0",
-  "main": "path/to/main.css",
+  "main": "web/assets/index.html",
   "ignore": [
     ".jshintrc",
     "**/*.txt"
