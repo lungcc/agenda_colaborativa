@@ -1,18 +1,12 @@
 (function(){
-	var app = angular.module('store', []);	
+	var app = angular.module('store', ['flow']).config(['flowFactoryProvider', function(flowFactoryProvider){
+		flowFactoryProvider.on('catchAll', function(event){
+			console.log('catchAll', arguments);
+		});
+	}]);
 
 	app.controller('StoreController', function(){
 		this.products = gems;
-	});
-
-	app.controller('PanelController', function(){
-		this.tab = 1
-
-		this.selectTab = function(setTab) {
-			this.tab = s
-		}
-
-
 	});
 
 	var gems = [
