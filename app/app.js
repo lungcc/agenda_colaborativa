@@ -5,15 +5,18 @@ var express = require('express'),
   fs = require('fs');
 
 var config = {
-  'database' : 'mongodb://127.0.0.1/agenda_colaborativa',
+  'database' : 'mongodb://localhost/agenda_colaborativa',
 };
 
 var router = express.Router();
 
 // Conexão com o mongoDB.
 mongoose.connect(config.database, function(err) {
-  console.log('Erro no mongoDB');
+  if (err) {
+    console.log('Erro no mongoDB');
+  }
 });
+
 app.use(bodyParser());
 // Require all routes.
 fs.readdirSync('./controllers').forEach(function(file) {
