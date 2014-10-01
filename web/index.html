@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="store">
+<head>
+	<meta charset="UTF-8">
+	<title>Agenda Colaborativa</title>
+
+	<link rel="stylesheet" href="assets/vendor/foundation/foundation.min.css">
+	<script src="assets/vendor/modernizr.js"></script>	
+	<script type="text/javascript" src="assets/vendor/angularjs/angular.min.js"></script>
+</head>
+<body>
+
+	<div ng-controller="StoreController as store">
+
+		<ul>
+			<li ng-repeat="product in store.products">
+				<h1>{{product.name}}</h1>
+				<h2>{{product.price}}</h2>
+				<p>{{product.description}}</p>
+			</li>
+		</ul>
+	</div>
+
+	<script src="assets/vendor/jquery.js"></script>	
+	<script src="assets/vendor/fastclick.js"></script>	
+	<script src="assets/vendor/jquery.cookie.js"></script>	
+	<script src="assets/vendor/placeholder.js"></script>	
+	<script src="assets/vendor/foundation/foundation.min.js"></script>	
+
+	<script src="assets/js/app.js"></script>
+</body>
+</html>
