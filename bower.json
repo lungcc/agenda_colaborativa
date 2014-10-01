@@ -7,7 +7,10 @@
     "**/*.txt"
   ],
   "dependencies": {
-    "flow.js": "~2"
+    "flow.js": "~2",
+    "jquery": "~2.1.1",
+    "angular": "~1.2.25",
+    "ng-flow": "~2"
   },
   "devDependencies": {}
 }
