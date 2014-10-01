@@ -6,4 +6,6 @@ Este é um projeto de uma Agenda Colaborativa em NodeJS, Angular e MongoDB. Cód
 Install
 =======
 * npm install
+* bower install
 * node app.js
+
