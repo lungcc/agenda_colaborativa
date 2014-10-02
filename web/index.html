@@ -3,40 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Agenda Colaborativa</title>
+	
 </head>
 <body>
 
-	<div ng-controller="StoreController as store">
+ 	<div ng-controller="EventosController as eventos">
 		<ul>
-			<li ng-repeat="product in store.products">
-				<h1>{{product.name}}</h1>
-				<h2>{{product.price}}</h2>
-				<p>{{product.description}}</p>
+			<li ng-repeat="evento in eventos.item">
+				<h1>{{ evento.titulo }}</h1>
+				<h2>{{ evento.body }}</h2>
 			</li>
 		</ul>
 	</div>
 
-	<div flow-init="{target: 'upload.php'}"
-	     flow-files-submitted="$flow.upload()"
-	     flow-file-success="$file.msg = $message">
-
-	  <input type="file" flow-btn/>
-	  Input OR Other element as upload button
-	  <span class="btn" flow-btn>Upload File</span>
-
-	<img flow-img="$flow.files[0]" />
-
-	  <table>
-	    <tr ng-repeat="file in $flow.files">
-	        <td>{{$index+1}}</td>
-	        <td>{{file.name}}</td>
-	        <td>{{file.msg}}</td>
-	    </tr>
-	  </table>
-	</div>
-
+	<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
-	<script type="text/javascript" src="../bower_components/ng-flow/dist/ng-flow-standalone.min.js"></script>
 	<script src="assets/js/app.js"></script>
 </body>
 </html>
