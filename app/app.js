@@ -9,6 +9,15 @@ var config = {
   'database' : 'mongodb://localhost/agenda_colaborativa',
 };
 
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,POST');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
+
+app.use(allowCrossDomain);
+
 // Conexão com o mongoDB.
 mongoose.connect(config.database, function(err) {
   if (err) {

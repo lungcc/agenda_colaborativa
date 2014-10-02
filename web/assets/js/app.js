@@ -1,36 +1,15 @@
 (function(){
-	var app = angular.module('store', ['flow']).config(['flowFactoryProvider', function(flowFactoryProvider){
-		flowFactoryProvider.on('catchAll', function(event){
-			console.log('catchAll', arguments);
+
+	var app = angular.module('store', []);
+
+	app.controller('EventosController', [ '$http', function($http){
+		var eventos = this;
+		eventos.item = [];
+
+		$http.get('localhost:8080/api/eventos').success(function(data){
+			console.log(data);
+			eventos.item = data;
 		});
-	}]);
-
-	app.controller('StoreController', function(){
-		this.products = gems;
-	});
-
-	var gems = [
-		{
-			name: 'Dodecahedron',
-			price: 2.95,
-			description: '. . .',
-			canPurchase: true,
-			soldOut: false
-		},
-		{
-			name: 'Pedidilari',
-			price: 3.75,
-			description: '. . .',
-			canPurchase: true,
-			soldOut: false
-		},
-		{
-			name: 'Pedidilari',
-			price: 3.75,
-			description: '. . .',
-			canPurchase: true,
-			soldOut: false
-		}
-	];
+	}]); 
 
 })();
