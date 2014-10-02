@@ -3,20 +3,15 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   app = express(),
   router = express.Router(),
-  fs = require('fs');
+  fs = require('fs'),
+  path = require('path');
+
+var urlIndex = './../web/index.html';
+    urlIndexResolvido = path.resolve(urlIndex);
 
 var config = {
   'database' : 'mongodb://localhost/agenda_colaborativa',
 };
-
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,POST');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-}
-
-app.use(allowCrossDomain);
 
 // Conexão com o mongoDB.
 mongoose.connect(config.database, function(err) {
@@ -37,6 +32,12 @@ fs.readdirSync('./controllers').forEach(function(file) {
 });
 
 app.use('/', router);
+
+app.get('/web', function(req, res) {
+  res.sendfile(urlIndexResolvido); // load the single view file (angular will handle the page changes on the front-end)
+});
+
+
 app.listen(app.get('port'), function() {
   console.log('Servidor rodando na porta 8080');
 });
