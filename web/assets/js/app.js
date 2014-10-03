@@ -4,7 +4,11 @@
 
 
 	$.ajax({
-		url: 'http://localhost:8080/api/eventos'
+		url: 'localhost:8080/api/eventos',
+		type: 'GET',
+		// contentType: 'application/json',
+		dataType: 'jasonp',
+		crossDomain: true
 	}).done(function(data){
 		console.log(data);
 	});
