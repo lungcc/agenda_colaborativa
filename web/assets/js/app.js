@@ -1,17 +1,24 @@
-console.log('opa');
+// console.log('opa');
 
 (function(){
 
-	var app = angular.module('store', []);
 
-	app.controller('EventosController', [ '$http', function($http){
-		var eventos = this;
-		eventos.item = [];
+	$.ajax({
+		url: 'http://localhost:8080/api/eventos'
+	}).done(function(data){
+		console.log(data);
+	});
 
-		$http.get('./api/eventos').success(function(data){
-			console.log(data);
-			eventos.item = data;
-		});
-	}]); 
+	// var app = angular.module('store', []);
+
+	// app.controller('EventosController', [ '$http', function($http){
+	// 	var eventos = this;
+	// 	eventos.item = [];
+
+	// 	$http.get('localhost:8080/api/eventos').success(function(data){
+	// 		console.log(data);
+	// 		eventos.item = data;
+	// 	});
+	// }]); 
 
 })();
