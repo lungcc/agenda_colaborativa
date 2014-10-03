@@ -40,6 +40,12 @@ fs.readdirSync('./controllers').forEach(function(file) {
 });
 
 app.use('/', router);
+
+app.get('/web', function(req, res) {
+  res.sendfile(urlIndexResolvido); // load the single view file (angular will handle the page changes on the front-end)
+});
+
+
 app.listen(app.get('port'), function() {
   console.log('Servidor rodando na porta 8080');
 });
