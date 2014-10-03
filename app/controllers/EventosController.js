@@ -1,4 +1,5 @@
-var Evento = require('../models/evento.js');
+var Evento = require('../models/evento.js'),
+  ImageField = require('../models/ImageUpload.js');
 
 /**
  * Eventos Controller.
@@ -6,6 +7,8 @@ var Evento = require('../models/evento.js');
 module.exports.controller = function(router) {
   // Selecao de eventos.
   router.get('/api/eventos', function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     Evento.find({}, function(err, eventos) {
       if (err) {
         throw (err);
@@ -21,6 +24,11 @@ module.exports.controller = function(router) {
     evento.body = req.body.body;
     evento.data = req.body.data;
 
+    ImageField.imageUpload(req, 'thumbnail', function(responce) {
+      console.log(responce);
+    });
+
+    // console.log(req);
     evento.save(function(err) {
       if (err) {
         res.send(err);
@@ -31,5 +39,14 @@ module.exports.controller = function(router) {
         });
       }
     });
+    // res.json({
+    //       message: 'Evento inserido com sucesso!',
+    //     });
   });
+
+  // Teste upload de image
+  router.post('/imagem/new', function(req, res) {
+
+  });
+
 }

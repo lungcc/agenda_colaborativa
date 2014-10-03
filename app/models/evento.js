@@ -18,6 +18,7 @@ var EventoSchema = new Schema({
     type : Date,
     required: true,
   },
+
 });
 
 
