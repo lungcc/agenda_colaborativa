@@ -3,11 +3,22 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   app = express(),
   router = express.Router(),
+  multer = require('multer'),
   fs = require('fs');
 
 var config = {
   'database' : 'mongodb://localhost/agenda_colaborativa',
 };
+
+var allowCrossDomain = function(req, res, next) {
+  console.log('teste');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,POST');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
+
+app.use(allowCrossDomain);
 
 // Conexão com o mongoDB.
 mongoose.connect(config.database, function(err) {
@@ -17,6 +28,7 @@ mongoose.connect(config.database, function(err) {
 });
 
 app.use(bodyParser());
+app.use(multer());
 app.set('port', process.env.PORT || 8080);
 
 // Require all routes.
