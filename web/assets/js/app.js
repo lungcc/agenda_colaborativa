@@ -21,25 +21,25 @@
 
 		$http({
 			url : 'http://localhost:8080/api/eventos',
-			method : "GET"    
+			method : "GET"
 		}).then(function(response){
 			eventos.item = response.data;
 			console.log(eventos.item);
 		});
 
-	}]); 
+	}]);
 
 
 
-	// myApp.controller("MyCtrl",['$scope','$http','$window',function($scope,$http,$window){  
-	  
+	// myApp.controller("MyCtrl",['$scope','$http','$window',function($scope,$http,$window){
+
 	//   $http({
 	//     url : 'http://www.corsproxy.com/muslimsalat.com/dhaka/monthly.json',
-	//     method : "GET"    
+	//     method : "GET"
 	//   }).then(function(response){
 	//     $scope.data=response.data;
 	//   });
-	
+
 
 
 })();

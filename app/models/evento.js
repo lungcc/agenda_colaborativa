@@ -18,8 +18,9 @@ var EventoSchema = new Schema({
     type : Date,
     required: true,
   },
-
+  img : {
+    type: Array,
+  },
 });
-
 
 module.exports = mongoose.model('Evento', EventoSchema);
